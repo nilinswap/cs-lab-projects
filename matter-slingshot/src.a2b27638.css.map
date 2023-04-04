@@ -1,0 +1,1 @@
+{"version":3,"sources":["src/styles.css"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA","file":"src.a2b27638.css","sourceRoot":"..","sourcesContent":["canvas {\n    position: relative;\n    width: 500px;\n    height: 400px;\n    background-color: white;\n}"]}

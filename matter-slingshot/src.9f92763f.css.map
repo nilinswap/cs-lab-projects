@@ -1,0 +1,1 @@
+{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAAA,OACI,iBAAkB,CAClB,WAAY,CACZ,YAAa,CACb,qBACJ","file":"src.9f92763f.css","sourceRoot":"..","sourcesContent":["canvas {\n    position: relative;\n    width: 500px;\n    height: 400px;\n    background-color: white;\n}"]}
