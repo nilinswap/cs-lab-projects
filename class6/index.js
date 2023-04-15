@@ -6,7 +6,8 @@ if (annyang) {
     "hello (there)": commandsModule.hello,
     "hello I am :name": commandsModule.helloFunction,
     "where am I": commandsModule.findLocation,
-    "what is the weather of city :city": commandsModule.weather
+    "what is the weather of city :city": commandsModule.weatherWhere,
+    "what is the weather here": commandsModule.weatherHere
   };
 
   // OPTIONAL: activate debug mode for detailed logging in the console

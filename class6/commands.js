@@ -19,51 +19,102 @@ export var helloFunction = function (name) {
   responsiveVoice.speak("Hello " + name + ", How are you doing today?");
 };
 
-// export var findLocation = function (name) {
-//     $.ajax({
-//       url: "https://geolocation-db.com/jsonp",
-//       jsonpCallback: "callback",
-//       dataType: "jsonp",
-//       success: function (location) {
-//         $("#country").html(location.country_name);
-//         $("#state").html(location.state);
-//         $("#city").html(location.city);
-//         $("#latitude").html(location.latitude);
-//         $("#longitude").html(location.longitude);
-//         $("#ip").html(location.IPv4);
-//       },
-//     });
-// }
+var currentLocation;
+const GMAP_API_KEY = "";
 
-export var findLocation = function () {
+(function () {
   geolocator.config({
     language: "en",
     google: {
       version: "3",
-      key: "",
+      key: GMAP_API_KEY,
     },
   });
 
   var options = {
     enableHighAccuracy: true,
+    fallbackToIP: true, // fallback to IP if Geolocation fails or rejected
+    addressLookup: true,
     timeout: 5000,
     maximumWait: 10000, // max wait time for desired accuracy
     maximumAge: 0, // disable cache
     desiredAccuracy: 30, // meters
-    fallbackToIP: true, // fallback to IP if Geolocation fails or rejected
-    addressLookup: true, // requires Google API key if true
-    timezone: true, // requires Google API key if true
-    map: "map-canvas", // interactive map element id (or options object)
-    staticMap: true, // get a static map image URL (boolean or options object)
+    timezone: true,
   };
+  console.log("ran");
   geolocator.locate(options, function (err, location) {
-    if (err) return console.log(err);
-    console.log(location);
+    console.log("location", location);
+    currentLocation = location;
+    $("#country").html(location.address.country);
+    $("#state").html(location.address.state);
+    $("#city").html(location.address.city);
+    $("#latitude").html(location.coords.latitude);
+    $("#longitude").html(location.coords.longitude);
   });
+})();
+
+export var weatherHere = function () {
+  $("#currentLocation").slideDown("slow");
+  scrollTo("#section_hello");
+
+  $("#weather").slideDown("slow");
+  scrollTo("#section_hello");
+
+  const lat = currentLocation.coords.latitude;
+  const long = currentLocation.coords.longitude;
+  setWeather({ lat, long });
 };
 
-export var weather = function (city) {
-  $.ajax({
-    url: "https://api.open-meteo.com/v1/forecast?latitude=20.74&longitude=78.60&current_weather=true&forecast_days=1&timezone=auto",
-  });
+function setWeather(res) {
+  fetch(
+    `https://api.open-meteo.com/v1/forecast?latitude=${res.lat}&longitude=${res.long}&current_weather=true&forecast_days=1&timezone=auto`
+  )
+    .then((res) => res.json())
+    .then((res) => {
+      $("#temperature").html(res.current_weather.temperature);
+      $("#windSpeed").html(res.current_weather.windSpeed);
+      $("#windDirection").html(res.current_weather.winddirection);
+      $("#elevation").html(res.elevation);
+      return res;
+    });
+}
+
+function getLatLongOnCity(city) {
+  return fetch(
+    `https://maps.googleapis.com/maps/api/geocode/json?address=${city}&key=${GMAP_API_KEY}`
+  )
+    .then((res) => res.json())
+    .then((res) => {
+      console.log("latlong", res);
+
+      return {
+        lat: res.results[0].geometry.location.lat,
+        long: res.results[0].geometry.location.lng,
+      };
+    });
+}
+
+export var weatherWhere = async function (city) {
+  $("#inputtedCity").html(city);
+
+  $("#weatherCity").html(city);
+
+  $("#inputtedLocation").slideDown("slow");
+  scrollTo("#section_hello");
+
+  $("#weather").slideDown("slow");
+  scrollTo("#section_hello");
+
+  getLatLongOnCity(city).then((res) => setWeather(res));
+};
+
+export var findLocation = function () {
+  $("#currentLocation").slideDown("slow");
+  scrollTo("#section_hello");
+  console.log(currentLocation);
+  if (currentLocation === undefined)
+    setTimeout(() => {
+      responsiveVoice.speak(`you are in ` + currentLocation?.formattedAddress);
+    }, 3000);
+  else responsiveVoice.speak(`you are in ` + currentLocation.formattedAddress);
 };

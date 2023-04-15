@@ -30,14 +30,26 @@
         <p class="voice_instructions">Say "Hello!"</p>
         <p id="hello" class="hidden">Hey, this is swapnil!</p>
     </section>
-    <div id="location">
-        <div id="city"></div>
-        <div id="state"></div>
-        <div id="country"></div>
-        <div id="latitude"></div>
-        <div id="longitude"></div>
-        <div id="ip"></div>
+    <div id="currentLocation" class="hidden">
+        <div>city: <span id="city"></span></div>
+        <div>state: <span id="state"></span></div>
+        <div>country: <span id="country"></span></div>
+        <div>latitude: <span id="latitude"></span></div>
+        <div>longitude: <span id="longitude"></span></div>
     </div>
+
+    <div id="inputtedLocation" class="hidden">
+        <div>Inputted city: <span id="inputtedCity"></span></div>
+    </div>
+
+    <div id="weather" class="hidden">
+        <div>City: <span id="weatherCity"></span></div>
+        <div>Temperature: <span id="temperature"></span></div>
+        <div>Elevation: <span id="elevation"></span></div>
+        <div>Wind Speed: <span id="windSpeed"></span></div>
+        <div>Wind Direction: <span id="windDirection"></span></div>
+    </div>
+
     <script src="./vendor/js/highlight.pack.js"></script>
     <div id="map-canvas" style="width:600px;height:400px"></div>
 
