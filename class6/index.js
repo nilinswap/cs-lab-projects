@@ -1,14 +1,12 @@
 "use strict";
-// const commandsModule = require('./commands')
 import * as commandsModule from './commands.js'
 
 if (annyang) {
   var commands = {
     "hello (there)": commandsModule.hello,
     "hello I am :name": commandsModule.helloFunction,
-    "show me *search": commandsModule.showFlickr,
-    "show :type report": commandsModule.showTPS,
-    "let's get started": commandsModule.getStarted,
+    "where am I": commandsModule.findLocation,
+    "what is the weather of city :city": commandsModule.weather
   };
 
   // OPTIONAL: activate debug mode for detailed logging in the console
