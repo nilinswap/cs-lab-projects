@@ -419,3 +419,10 @@ pre .chunk {
 #inputtedLocation {
 margin-top: 10px;
 }
+
+#currentLocation {
+    background-color: #407eb8;
+    padding: 1rem;
+    font-size: medium;
+    font-weight: bold;
+}

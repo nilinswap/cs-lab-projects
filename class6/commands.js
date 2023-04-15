@@ -23,23 +23,20 @@ var currentLocation;
 const GMAP_API_KEY = "";
 
 (function () {
-  geolocator.config({
-    language: "en",
-    google: {
-      version: "3",
-      key: GMAP_API_KEY,
-    },
-  });
+    if (!GMAP_API_KEY)
+    return
+      geolocator.config({
+        language: "en",
+        google: {
+          version: "3",
+          key: GMAP_API_KEY,
+        },
+      });
 
   var options = {
     enableHighAccuracy: true,
     fallbackToIP: true, // fallback to IP if Geolocation fails or rejected
     addressLookup: true,
-    timeout: 5000,
-    maximumWait: 10000, // max wait time for desired accuracy
-    maximumAge: 0, // disable cache
-    desiredAccuracy: 30, // meters
-    timezone: true,
   };
   console.log("ran");
   geolocator.locate(options, function (err, location) {
