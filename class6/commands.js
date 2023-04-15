@@ -40,7 +40,7 @@ export var findLocation = function () {
     language: "en",
     google: {
       version: "3",
-      key: "AIzaSyCJW2AkxxGM3UEu9UDrfOpdkahAaBWoWMw",
+      key: "",
     },
   });
 
