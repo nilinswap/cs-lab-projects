@@ -15,7 +15,7 @@ const scene = new THREE.Scene();
 {
   const color = 0xffffff;
   const intensity = 1;
-  const light = new THREE.DirectionalLight(color, intensity);
+  const light = new THREE.PointLight(color, intensity);
   light.position.set(-1, 2, 4);
   scene.add(light);
 }
@@ -29,16 +29,18 @@ const material = new THREE.MeshPhongMaterial({ color: 0x44aa88 }); // greenish b
 
 const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
-
-function render(time) {
-  time *= 0.001; // convert time to seconds
-
-  cube.rotation.x = time;
-  cube.rotation.y = time;
-  cube.rotation.z = time;
-
   renderer.render(scene, camera);
 
-  requestAnimationFrame(render);
-}
-requestAnimationFrame(render);
+
+// function render(time) {
+//   time *= 0.001; // convert time to seconds
+
+//   cube.rotation.x = time;
+//   cube.rotation.y = time;
+//   cube.rotation.z = time;
+
+//   renderer.render(scene, camera);
+
+//   requestAnimationFrame(render);
+// }
+// requestAnimationFrame(render);
