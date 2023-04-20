@@ -1,25 +1,19 @@
 import * as THREE from "three";
 
 import { FontLoader } from "three/addons/loaders/FontLoader.js";
-import { TextGeometry } from "three/addons/geometries/TextGeometry.js";
+import { createText } from "./utils.js";
+
 
 THREE.Cache.enabled = true;
 
 let container;
-
 let camera, cameraTarget, scene, renderer;
-
-let group, textMesh1, textGeo, materials;
+let group, textMesh1, textGeo;
 
 let text = "three.js",
   font = undefined,
   fontName = "optimer", // helvetiker, optimer, gentilis, droid sans, droid serif
   fontWeight = "bold"; // normal bold
-
-const height = 20,
-  size = 70,
-  hover = 30;
-
 
 function init() {
   container = document.createElement("div");
@@ -34,7 +28,6 @@ function init() {
     1500
   );
   camera.position.set(0, 400, 700);
-
   cameraTarget = new THREE.Vector3(0, 150, 0);
 
   // SCENE
@@ -47,11 +40,6 @@ function init() {
   pointLight.color.setHSL(Math.random(), 1, 0.5);
   pointLight.position.set(0, 100, 90);
   scene.add(pointLight);
-
-  materials = [
-    new THREE.MeshPhongMaterial({ color: 0xffffff, flatShading: true }), // front
-    new THREE.MeshPhongMaterial({ color: 0xffffff }), // side
-  ];
 
   group = new THREE.Group();
   group.position.y = 100;
@@ -70,7 +58,6 @@ function init() {
   // EVENTS
 
   container.style.touchAction = "none";
-
   window.addEventListener("resize", onWindowResize);
 }
 
@@ -89,49 +76,20 @@ function loadFont() {
     "fonts/" + fontName + "_" + fontWeight + ".typeface.json",
     function (response) {
       font = response;
-
       refreshText();
       render();
     }
   );
 }
 
-function createText() {
-  textGeo = new TextGeometry(text, {
-    font: font,
-
-    size: size,
-    height: height,
-  });
-
-  textGeo.computeBoundingBox();
-
-  const centerOffset =
-    -0.5 * (textGeo.boundingBox.max.x - textGeo.boundingBox.min.x);
-
-  textMesh1 = new THREE.Mesh(textGeo, materials);
-
-  textMesh1.position.x = centerOffset;
-  textMesh1.position.y = hover;
-  textMesh1.position.z = 0;
-
-  textMesh1.rotation.x = 0;
-  textMesh1.rotation.y = Math.PI * 2;
-
-  group.add(textMesh1);
-}
-
 function refreshText() {
   group.remove(textMesh1);
-
   if (!text) return;
-
-  createText();
+  createText(textGeo, textMesh1, group, font, text);
 }
 
 function render() {
   camera.lookAt(cameraTarget);
-
   renderer.clear();
   renderer.render(scene, camera);
 }
