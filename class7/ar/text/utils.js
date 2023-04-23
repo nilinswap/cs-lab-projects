@@ -8,8 +8,8 @@ export function createText(font, text) {
     new THREE.MeshPhongMaterial({ color: 0xffffff, flatShading: true }), // front
     new THREE.MeshPhongMaterial({ color: 0xffffff }), // side
   ];
-  const height = 30,
-    size = 70,
+  const height = 1,
+    size = 1,
     hover = 1;
 
   let textGeo = new TextGeometry(text, {
@@ -27,11 +27,11 @@ export function createText(font, text) {
 
   // textMesh.position.x = centerOffset;
   textMesh.position.y = hover;
-  textMesh.position.z = 0;
+  // textMesh.position.z = 0;
 
-  textMesh.rotation.x = 0;
-  textMesh.rotation.y = Math.PI * 2;
-
+  // textMesh.rotation.x = 0;
+  // textMesh.rotation.y = Math.PI * 2;
+  textMesh.rotateX(-Math.PI / 2);
   return textMesh;
 }
 

@@ -13,8 +13,7 @@ let text = "Hala",
   fontName = "optimer", // helvetiker, optimer, gentilis, droid sans, droid serif
   fontWeight = "bold"; // normal bold
 
-initialize();
-animate();
+
 
 export function loadFont() {
   const loader = new FontLoader();
@@ -22,14 +21,16 @@ export function loadFont() {
     "../../text/fonts/" + fontName + "_" + fontWeight + ".typeface.json",
     function (response) {
       font = response;
-        // let newMesh = createText(font, text);
-        // scene.add(newMesh)
-        // render();
+      console.log('font', font)
+      // let newMesh = createText(font, text);
+      // scene.add(newMesh)
+      // render();
+      initialize();
+      animate();
     }
   );
 }
 
-loadFont();
 
 function initialize() {
   scene = new THREE.Scene();
@@ -39,6 +40,12 @@ function initialize() {
 
   camera = new THREE.Camera();
   scene.add(camera);
+
+
+  const pointLight = new THREE.PointLight(0xffffff, 1.5);
+  pointLight.color.setHSL(Math.random(), 1, 0.5);
+  pointLight.position.set(0, 1, 9);
+  scene.add(pointLight);
 
   renderer = new THREE.WebGLRenderer({
     antialias: true,
@@ -101,6 +108,9 @@ function initialize() {
 
   // build markerControls
   markerRoot1 = new THREE.Group();
+  let mesh = createText(font, text);
+  console.log("mesh", mesh);
+  markerRoot1.add(mesh);
   scene.add(markerRoot1);
   let markerControls1 = new THREEx.ArMarkerControls(
     arToolkitContext,
@@ -110,11 +120,6 @@ function initialize() {
       patternUrl: "../data/hiro.patt",
     }
   );
-
-  let mesh = createText(font, text);
-  console.log('mesh', mesh)
-  markerRoot1.add(mesh);
-    
 }
 
 function update() {
@@ -134,3 +139,5 @@ function animate() {
   update();
   render();
 }
+
+loadFont();
