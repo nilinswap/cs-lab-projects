@@ -1,11 +1,10 @@
-
 import { createText } from "./utils.js";
 
 var scene, camera, renderer, clock, deltaTime, totalTime;
 
 var arToolkitSource, arToolkitContext;
-import { FontLoader } from "../js/FontLoader.js";
-import * as THREE from "../js/three.js";
+import { FontLoader } from "three/addons/loaders/FontLoader.js";
+import * as THREE from "three";
 
 var markerRoot1, markerRoot2;
 
@@ -23,9 +22,9 @@ export function loadFont() {
     "../../text/fonts/" + fontName + "_" + fontWeight + ".typeface.json",
     function (response) {
       font = response;
-      let newMesh = createText(font, text);
-      scene.add(newMesh)
-      render();
+        // let newMesh = createText(font, text);
+        // scene.add(newMesh)
+        // render();
     }
   );
 }
@@ -65,10 +64,10 @@ function initialize() {
   });
 
   function onResize() {
-    arToolkitSource.onResize();
-    arToolkitSource.copySizeTo(renderer.domElement);
+    arToolkitSource.onResizeElement();
+    arToolkitSource.copyElementSizeTo(renderer.domElement);
     if (arToolkitContext.arController !== null) {
-      arToolkitSource.copySizeTo(arToolkitContext.arController.canvas);
+      arToolkitSource.copyElementSizeTo(arToolkitContext.arController.canvas);
     }
   }
 
@@ -87,7 +86,7 @@ function initialize() {
 
   // create atToolkitContext
   arToolkitContext = new THREEx.ArToolkitContext({
-    cameraParametersUrl: "data/camera_para.dat",
+    cameraParametersUrl: "../data/camera_para.dat",
     detectionMode: "mono",
   });
 
@@ -108,11 +107,14 @@ function initialize() {
     markerRoot1,
     {
       type: "pattern",
-      patternUrl: "data/hiro.patt",
+      patternUrl: "../data/hiro.patt",
     }
   );
 
-  markerRoot1.add(createText(font, text));
+  let mesh = createText(font, text);
+  console.log('mesh', mesh)
+  markerRoot1.add(mesh);
+    
 }
 
 function update() {

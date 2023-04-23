@@ -4,10 +4,22 @@ var arToolkitSource, arToolkitContext;
 
 var markerRoot1, markerRoot2;
 
-var mesh1;
 
 initialize();
 animate();
+
+function createMesh() {
+   let geometry1 = new THREE.CubeGeometry(1, 1, 1); 
+  let material1 = new THREE.MeshNormalMaterial({
+    transparent: true,
+    opacity: 0.5,
+    side: THREE.DoubleSide,
+  });
+
+  let mesh = new THREE.Mesh(geometry1, material1);
+  mesh.position.y = 0.5;
+  return mesh;
+}
 
 function initialize() {
   scene = new THREE.Scene();
@@ -89,17 +101,8 @@ function initialize() {
     }
   );
 
-  let geometry1 = new THREE.CubeGeometry(1, 1, 1);
-  let material1 = new THREE.MeshNormalMaterial({
-    transparent: true,
-    opacity: 0.5,
-    side: THREE.DoubleSide,
-  });
-
-  mesh1 = new THREE.Mesh(geometry1, material1);
-  mesh1.position.y = 0.5;
-
-  markerRoot1.add(mesh1);
+ 
+  markerRoot1.add( createMesh());
 }
 
 function update() {
