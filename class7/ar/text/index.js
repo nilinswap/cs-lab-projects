@@ -21,10 +21,6 @@ export function loadFont() {
     "../../text/fonts/" + fontName + "_" + fontWeight + ".typeface.json",
     function (response) {
       font = response;
-      console.log('font', font)
-      // let newMesh = createText(font, text);
-      // scene.add(newMesh)
-      // render();
       initialize();
       animate();
     }
@@ -62,10 +58,6 @@ function initialize() {
   deltaTime = 0;
   totalTime = 0;
 
-  ////////////////////////////////////////////////////////////
-  // setup arToolkitSource
-  ////////////////////////////////////////////////////////////
-
   arToolkitSource = new THREEx.ArToolkitSource({
     sourceType: "webcam",
   });
@@ -87,10 +79,6 @@ function initialize() {
     onResize();
   });
 
-  ////////////////////////////////////////////////////////////
-  // setup arToolkitContext
-  ////////////////////////////////////////////////////////////
-
   // create atToolkitContext
   arToolkitContext = new THREEx.ArToolkitContext({
     cameraParametersUrl: "../data/camera_para.dat",
@@ -101,10 +89,6 @@ function initialize() {
   arToolkitContext.init(function onCompleted() {
     camera.projectionMatrix.copy(arToolkitContext.getProjectionMatrix());
   });
-
-  ////////////////////////////////////////////////////////////
-  // setup markerRoots
-  ////////////////////////////////////////////////////////////
 
   // build markerControls
   markerRoot1 = new THREE.Group();
@@ -123,7 +107,6 @@ function initialize() {
 }
 
 function update() {
-  // update artoolkit on every frame
   if (arToolkitSource.ready !== false)
     arToolkitContext.update(arToolkitSource.domElement);
 }
