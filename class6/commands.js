@@ -37,6 +37,7 @@ const GMAP_API_KEY = "";
     enableHighAccuracy: true,
     fallbackToIP: true, // fallback to IP if Geolocation fails or rejected
     addressLookup: true,
+    // map: "map-canvas", // interactive map element id (or options object)
   };
   console.log("ran");
   geolocator.locate(options, function (err, location) {
