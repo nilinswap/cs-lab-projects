@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>class6</title>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=WHf5kq0t"></script>
+    <script type="module" src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <section id="section_header">
+        <h1>Say Hello!</h1>
+    </section>
+    <section id="section_hello">
+        <p><em>Go ahead, try it&hellip;</em></p>
+        <p class="voice_instructions">Say "Hello!"</p>
+        <p id="hello" class="hidden">Hey, this is swapnil!</p>
+    </section>
+
+    <section id="section_image_search">
+        <p><em>Let's try something more interesting&hellip;</em></p>
+        <p class="voice_instructions">Say "Show me cute kittens!"</p>
+        <p class="voice_instructions">Say "Show me Arches National Park!"</p>
+        <p class="voice_instructions">Now go wild. Say "Show me&hellip;" and make your demands!</p>
+        <div id="flickrLoader">
+            <p></p>
+        </div>
+        <div id="flickrGallery" class="hidden"></div>
+    </section>
+
+
+    <script src="./vendor/js/highlight.pack.js"></script>
+
+
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
+</html>
