@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>emoji-translate</title>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+    <script src="emoji-translate.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<style>
+    
+</style>
+
+<body>
+    <div class="container">
+        <h1>From 🇬🇧</h1>
+        <p class="note">(just start typing!)</p>
+        <textarea id="input">OMG!!! The house is on fire and the cat is eating all the donuts!</textarea>
+        <br><br>
+        <h1>To ✨emoji✨ <button onclick="copy()" id="copyButton">Copy to clipboard</button></h1>
+        <div id="output"></div>
+    </div>
+
+    <div id="clipboardContents"></div>
+    <script type="text/javascript">
+        console.log(EmojiTranslate.translate('the cat is on fire'));
+    </script>
+    <script src="script.js"> </script>
+</body>
+
+</html>
