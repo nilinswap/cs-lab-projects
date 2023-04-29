@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+  @license
+  Copyright 2019 Google LLC. All Rights Reserved.
+  SPDX-License-Identifier: Apache-2.0
+-->
+<html>
+
+<head>
+    <title>Displaying Text Directions With setPanel()</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="floating-panel">
+        <strong>Start:</strong>
+        <select id="start">
+            <option value=""></option>
+            <option value="Bengaluru">Bengaluru</option>
+            <option value="Pune">Pune</option>
+            <option value="Wardha">Wardha</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Raipur">Raipur</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Nagpur">Nagpur</option>
+            <option value="Cochin">Cochin</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Jaipur">Jaipur</option>
+        </select>
+        <br />
+        <strong>End:</strong>
+        <select id="end">
+            <option value=""></option>
+            <option value="Jaipur">Jaipur</option>
+            <option value="Bengaluru">Bengaluru</option>
+            <option value="Pune">Pune</option>
+            <option value="Wardha">Wardha</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Raipur">Raipur</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Nagpur">Nagpur</option>
+            <option value="Cochin">Cochin</option>
+            <option value="Hyderabad">Hyderabad</option>
+        </select>
+        <br />
+        <b>Mode of Travel: </b>
+        <select id="mode">
+            <option value="DRIVING">Driving</option>
+            <option value="WALKING">Walking</option>
+            <option value="BICYCLING">Bicycling</option>
+            <option value="TRANSIT">Transit</option>
+        </select>
+        <br>
+        <button id="submitButton">submit</button>
+    </div>
+    <div id="container">
+        <div id="map"></div>
+        <div id="sidebar"></div>
+    </div>
+
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsoTsoIT9ZrWbZ-eWwG_EYkfvuyN8nA7U&callback=initMap&v=weekly"
+        defer></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
