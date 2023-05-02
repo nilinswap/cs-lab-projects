@@ -7,7 +7,12 @@ body {
   padding: 0;
 }
 
-#pac-input {
+#pac-container {
+  width: 50%;
+  margin-left: 12px;
+}
+
+/* #pac-input {
   background-color: #fff;
   font-family: Roboto;
   font-size: 15px;
@@ -16,7 +21,9 @@ body {
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
   width: 400px;
-}
+  border: 1px solid #999;
+  border-radius: 10px;
+} Teach them to move from here to bootstrap*/
 
 #pac-input:focus {
   border-color: #4d90fe;
