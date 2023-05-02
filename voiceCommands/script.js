@@ -16,7 +16,5 @@ if (annyang) {
 
   annyang.start();
 } else {
-  $(document).ready(function () {
-    $("#unsupported").fadeIn("fast");
-  });
+  alert("annyang unsupported?");
 }

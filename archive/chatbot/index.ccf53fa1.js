@@ -27431,19 +27431,19 @@ module.exports = require("./cjs/scheduler.development.js");
 },{}],"iF8r3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _hooks = require("./hooks");
+var _hooks = require("./hooks.js");
 parcelHelpers.exportAll(_hooks, exports);
-var _components = require("./components");
+var _components = require("./components.js");
 parcelHelpers.exportAll(_components, exports);
 
 },{"./hooks":"kEid7","./components":"gQ9SC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kEid7":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _useBotUI = require("./useBotUI");
+var _useBotUI = require("./useBotUI.js");
 parcelHelpers.exportAll(_useBotUI, exports);
-var _useBotUIAction = require("./useBotUIAction");
+var _useBotUIAction = require("./useBotUIAction.js");
 parcelHelpers.exportAll(_useBotUIAction, exports);
-var _useBotUIMessage = require("./useBotUIMessage");
+var _useBotUIMessage = require("./useBotUIMessage.js");
 parcelHelpers.exportAll(_useBotUIMessage, exports);
 
 },{"./useBotUI":"7Lj19","./useBotUIAction":"2HTgO","./useBotUIMessage":"6pvqn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7Lj19":[function(require,module,exports) {
@@ -27484,13 +27484,13 @@ const useBotUIMessage = ()=>{
 },{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gQ9SC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _botUI = require("./BotUI");
+var _botUI = require("./BotUI.js");
 parcelHelpers.exportAll(_botUI, exports);
-var _botUIAction = require("./BotUIAction");
+var _botUIAction = require("./BotUIAction.js");
 parcelHelpers.exportAll(_botUIAction, exports);
-var _botUIMessage = require("./BotUIMessage");
+var _botUIMessage = require("./BotUIMessage.js");
 parcelHelpers.exportAll(_botUIMessage, exports);
-var _botUIActionSelect = require("./BotUIActionSelect");
+var _botUIActionSelect = require("./BotUIActionSelect.js");
 parcelHelpers.exportAll(_botUIActionSelect, exports);
 
 },{"./BotUI":"3DxS7","./BotUIAction":"aKjnW","./BotUIMessage":"1AnWe","./BotUIActionSelect":"1bm9X","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3DxS7":[function(require,module,exports) {
@@ -27562,9 +27562,9 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _botui = require("botui");
 var _types = require("../types");
-var _utils = require("./Utils");
+var _utils = require("./Utils.js");
 var _hooks = require("../hooks");
-var _botUIActionSelect = require("./BotUIActionSelect");
+var _botUIActionSelect = require("./BotUIActionSelect.js");
 const BotUIWait = ()=>{
     return (0, _reactDefault.default).createElement("div", {
         className: (0, _types.CSSClasses).botui_wait
@@ -27666,17 +27666,17 @@ parcelHelpers.export(exports, "SwitchTransition", ()=>(0, _switchTransitionDefau
 parcelHelpers.export(exports, "TransitionGroup", ()=>(0, _transitionGroupDefault.default));
 parcelHelpers.export(exports, "Transition", ()=>(0, _transitionDefault.default));
 parcelHelpers.export(exports, "config", ()=>(0, _configDefault.default));
-var _csstransition = require("./CSSTransition");
+var _csstransition = require("./CSSTransition.js");
 var _csstransitionDefault = parcelHelpers.interopDefault(_csstransition);
-var _replaceTransition = require("./ReplaceTransition");
+var _replaceTransition = require("./ReplaceTransition.js");
 var _replaceTransitionDefault = parcelHelpers.interopDefault(_replaceTransition);
-var _switchTransition = require("./SwitchTransition");
+var _switchTransition = require("./SwitchTransition.js");
 var _switchTransitionDefault = parcelHelpers.interopDefault(_switchTransition);
-var _transitionGroup = require("./TransitionGroup");
+var _transitionGroup = require("./TransitionGroup.js");
 var _transitionGroupDefault = parcelHelpers.interopDefault(_transitionGroup);
-var _transition = require("./Transition");
+var _transition = require("./Transition.js");
 var _transitionDefault = parcelHelpers.interopDefault(_transition);
-var _config = require("./config");
+var _config = require("./config.js");
 var _configDefault = parcelHelpers.interopDefault(_config);
 
 },{"./CSSTransition":"a3gKf","./ReplaceTransition":false,"./SwitchTransition":false,"./TransitionGroup":"5mvFs","./Transition":"cKsrS","./config":"cepoZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"a3gKf":[function(require,module,exports) {
@@ -27696,10 +27696,10 @@ var _removeClass = require("dom-helpers/removeClass");
 var _removeClassDefault = parcelHelpers.interopDefault(_removeClass);
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _transition = require("./Transition");
+var _transition = require("./Transition.js");
 var _transitionDefault = parcelHelpers.interopDefault(_transition);
-var _propTypes1 = require("./utils/PropTypes");
-var _reflow = require("./utils/reflow");
+var _propTypes1 = require("./utils/PropTypes.js");
+var _reflow = require("./utils/reflow.js");
 var _addClass1 = function addClass(node, classes) {
     return node && classes && classes.split(" ").forEach(function(c) {
         return (0, _addClassDefault.default)(node, c);
@@ -28073,7 +28073,7 @@ var ReactIs = require("react-is");
 // By explicitly using `prop-types` you are opting into new development behavior.
 // http://fb.me/prop-types-in-prod
 var throwOnDirectAccess = true;
-module.exports = require("./factoryWithTypeCheckers")(ReactIs.isElement, throwOnDirectAccess);
+module.exports = require("./factoryWithTypeCheckers.js")(ReactIs.isElement, throwOnDirectAccess);
 
 },{"react-is":"7EuwB","./factoryWithTypeCheckers":"bBUgD"}],"7EuwB":[function(require,module,exports) {
 "use strict";
@@ -28244,9 +28244,9 @@ module.exports = require("./cjs/react-is.development.js");
  */ "use strict";
 var ReactIs = require("react-is");
 var assign = require("object-assign");
-var ReactPropTypesSecret = require("./lib/ReactPropTypesSecret");
-var has = require("./lib/has");
-var checkPropTypes = require("./checkPropTypes");
+var ReactPropTypesSecret = require("./lib/ReactPropTypesSecret.js");
+var has = require("./lib/has.js");
+var checkPropTypes = require("./checkPropTypes.js");
 var printWarning = function() {};
 printWarning = function(text) {
     var message = "Warning: " + text;
@@ -28749,9 +28749,9 @@ module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
  * LICENSE file in the root directory of this source tree.
  */ "use strict";
 var printWarning = function() {};
-var ReactPropTypesSecret = require("./lib/ReactPropTypesSecret");
+var ReactPropTypesSecret = require("./lib/ReactPropTypesSecret.js");
 var loggedTypeFailures = {};
-var has = require("./lib/has");
+var has = require("./lib/has.js");
 printWarning = function(text) {
     var message = "Warning: " + text;
     if (typeof console !== "undefined") console.error(message);
@@ -28812,7 +28812,7 @@ module.exports = checkPropTypes;
 },{"./lib/ReactPropTypesSecret":"jZTZJ","./lib/has":"fqKuf"}],"7dIIz":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-var _hasClass = require("./hasClass");
+var _hasClass = require("./hasClass.js");
 var _hasClassDefault = parcelHelpers.interopDefault(_hasClass);
 function addClass(element, className) {
     if (element.classList) element.classList.add(className);
@@ -28863,12 +28863,12 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactDom = require("react-dom");
 var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
-var _config = require("./config");
+var _config = require("./config.js");
 var _configDefault = parcelHelpers.interopDefault(_config);
-var _propTypes1 = require("./utils/PropTypes");
-var _transitionGroupContext = require("./TransitionGroupContext");
+var _propTypes1 = require("./utils/PropTypes.js");
+var _transitionGroupContext = require("./TransitionGroupContext.js");
 var _transitionGroupContextDefault = parcelHelpers.interopDefault(_transitionGroupContext);
-var _reflow = require("./utils/reflow");
+var _reflow = require("./utils/reflow.js");
 var UNMOUNTED = "unmounted";
 var EXITED = "exited";
 var ENTERING = "entering";
@@ -29430,9 +29430,9 @@ var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _transitionGroupContext = require("./TransitionGroupContext");
+var _transitionGroupContext = require("./TransitionGroupContext.js");
 var _transitionGroupContextDefault = parcelHelpers.interopDefault(_transitionGroupContext);
-var _childMapping = require("./utils/ChildMapping");
+var _childMapping = require("./utils/ChildMapping.js");
 var values = Object.values || function(obj) {
     return Object.keys(obj).map(function(k) {
         return obj[k];
@@ -29813,7 +29813,7 @@ parcelHelpers.export(exports, "BotuiActionSelect", ()=>BotuiActionSelect);
 parcelHelpers.export(exports, "BotuiActionSelectButtons", ()=>BotuiActionSelectButtons);
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _utils = require("./Utils");
+var _utils = require("./Utils.js");
 var _types = require("../types");
 var _hooks = require("../hooks");
 const BotuiActionSelect = ()=>{
@@ -29872,7 +29872,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactTransitionGroup = require("react-transition-group");
 var _hooks = require("../hooks");
 var _types = require("../types");
-var _utils = require("./Utils");
+var _utils = require("./Utils.js");
 var MessageType;
 (function(MessageType) {
     MessageType["text"] = "text";

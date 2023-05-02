@@ -28,5 +28,6 @@ var jsonFlickrApi = function (results) {
     newImage.src = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_s.jpg`;
     newImage.className = "flickrGallery";
     flickrGallery.appendChild(newImage);
+    document.documentElement.scrollTop = document.documentElement.scrollHeight;
   });
 };

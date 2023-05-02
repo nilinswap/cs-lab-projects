@@ -10,6 +10,10 @@ body {
     display: none
 }
 
+.display {
+    display: block
+}
+
 a,
 a:visited {
     color: #90b8de;
@@ -109,7 +113,8 @@ section {
 
 #section_header {
     padding-top: 70px;
-    text-align: center
+    text-align: center;
+    background: #8fcccc;
 }
 
 #section_hello {
@@ -415,3 +420,14 @@ pre .chunk {
     color: #aaa
 }
 
+
+#inputtedLocation {
+    margin-top: 10px;
+}
+
+#currentLocation {
+    background-color: #407eb8;
+    padding: 1rem;
+    font-size: medium;
+    font-weight: bold;
+}
