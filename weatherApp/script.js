@@ -7,12 +7,13 @@ function setWeather(res) {
       console.log("res", res);
 
       document.getElementById("temperature").innerHTML =
-        res.current_weather.temperature;
+        res.current_weather.temperature + "&deg;C";
       document.getElementById("windSpeed").innerHTML =
         res.current_weather.windspeed;
       document.getElementById("windDirection").innerHTML =
         res.current_weather.winddirection;
       document.getElementById("elevation").innerHTML = res.elevation;
+      document.getElementsByClassName("weather")[0].classList.remove("hidden");
       return res;
     });
 }

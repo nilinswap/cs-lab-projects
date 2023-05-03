@@ -5,11 +5,49 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 #pac-container {
   width: 50%;
-  margin-left: 12px;
+    background-color: rgb(246, 246, 246);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.pac-card {
+  height: 100%;
+  width: 100%;
+}
+
+.weather {
+  width: 40%;
+  border: 0px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  background-color: #86b9e0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.weatherDetails {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.hidden{
+  display: none;
+}
+
+#tempDeg{
+  font-size: xxx-large;
 }
 
 /* #pac-input {
@@ -27,6 +65,10 @@ body {
 
 #pac-input:focus {
   border-color: #4d90fe;
+}
+
+#pac-input {
+  width: 50%;
 }
 
 #title {

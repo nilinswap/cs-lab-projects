@@ -12,22 +12,29 @@
 
 <body>
     <div class="pac-card" id="pac-card">
-        <div>
-            <div id="title">Autocomplete search</div>
-            <br />
-        </div>
+        <div id="title">Weather App</div>
         <div id="pac-container">
-            <!-- <input id="pac-input" type="text" placeholder="Enter a location" />  TEACH them transition from pac-input to bootstrap use --> 
+            <!-- <input id="pac-input" type="text" placeholder="Enter a location" />  TEACH them transition from pac-input to bootstrap use -->
             <input id="pac-input" class="form-control" type="text" placeholder="Enter a location" />
+            <div class="weather hidden">
+                <div id="tempDeg"><span id="temperature"></span></div>
+                <div>
+                    <div class="weatherDetails">
+                        <div class="label">Elevation</div> <b><span id="elevation"></span> m</b>
+                    </div>
+                    <div class="weatherDetails">
+                        <div class="label">Wind Speed </div><b><span id="windSpeed"></span></b>
+                    </div>
+                    <div class="weatherDetails">
+                        <div class="label">Wind Direction</div> <b><span id="windDirection"></span></b>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
 
-    <div id="weather">
-        <div>Temperature: <span id="temperature"></span></div>
-        <div>Elevation: <span id="elevation"></span></div>
-        <div>Wind Speed: <span id="windSpeed"></span></div>
-        <div>Wind Direction: <span id="windDirection"></span></div>
-    </div>
+
 
     <script src="script.js"></script>
     <script
