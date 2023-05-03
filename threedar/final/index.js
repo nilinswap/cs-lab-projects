@@ -47,7 +47,10 @@ function getCube() {
   const boxDepth = 1;
   const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
 
-  const material = new THREE.MeshPhongMaterial({ color: 0x44aa88 }); // greenish blue
+  const texture = new THREE.TextureLoader().load(
+    "../assets/textures/crate.gif"
+  );
+  const material = new THREE.MeshPhongMaterial({ map: texture }); // greenish blue
 
   const cube = new THREE.Mesh(geometry, material);
   return cube;
