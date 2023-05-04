@@ -8,7 +8,7 @@ THREE.Cache.enabled = true;
 
 let container;
 let camera, cameraTarget, scene, renderer;
-let group, textMesh1, textGeo;
+let group, textGeo;
 
 let text = "three.js",
   font = undefined,
@@ -83,9 +83,7 @@ function loadFont() {
 }
 
 function refreshText() {
-  group.remove(textMesh1);
-  if (!text) return;
-  createText(textGeo, textMesh1, group, font, text);
+  group.add(createText( font, text));
 }
 
 function render() {

@@ -1,60 +1,61 @@
 import * as THREE from "three";
+import { createText } from "./utils.js";
+import { FontLoader } from "three/addons/loaders/FontLoader.js";
 
 
 // create canvas and renderer
 const canvas = document.querySelector("#three");
 const renderer = new THREE.WebGLRenderer({ antialias: true, canvas });
-
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
+  
 // create camera
-const fov = 100;
-const aspect = 2; // the canvas default
-const near = 0.1;
-const far = 5;
+const fov = 30;
+const aspect = window.innerWidth / window.innerHeight; // the canvas default
+const near = 1;
+const far = 1500;
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-camera.position.z = 2;
+camera.position.set(0, 400, 700);
+const cameraTarget = new THREE.Vector3(0, 150, 0);
 
 // create scene, add light
 const scene = new THREE.Scene();
-addLight(scene)
+addLight(scene);
 
 //create mesh, add to scene
-const cube = getCube()
-scene.add(cube);
+let group = new THREE.Group();
+group.position.y = 100;
+scene.add(group);
+loadFont(group);
 
-function render(time) {
-  time *= 0.001; // convert time to seconds
-
-  cube.rotation.x = time;
-  cube.rotation.y = time;
-  cube.rotation.z = time;
-
+function render() {
+  camera.lookAt(cameraTarget);
+  renderer.clear();
   renderer.render(scene, camera);
-
-  requestAnimationFrame(render);
 }
 
 function addLight(scene) {
   const color = 0xffffff;
-  const intensity = 1;
+  const intensity = 1.5;
   const light = new THREE.PointLight(color, intensity);
-  light.position.set(-1, 2, 4);
+  light.color.setHSL(Math.random(), 1, 0.5);
+  light.position.set(0, 100, 90);
   scene.add(light);
 }
 
-function getCube() {
-  const boxWidth = 1;
-  const boxHeight = 1;
-  const boxDepth = 1;
-  const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
-
-  const texture = new THREE.TextureLoader().load(
-    "../assets/textures/crate.gif"
+function loadFont(group) {
+    let fontName = "optimer", // helvetiker, optimer, gentilis, droid sans, droid serif
+  fontWeight = "bold";
+  const loader = new FontLoader();
+  loader.load(
+    "fonts/" + fontName + "_" + fontWeight + ".typeface.json",
+    function (response) {
+      let font = response;
+      group.add(createText(font, "Swapnil"));
+      render();
+    }
   );
-  const material = new THREE.MeshPhongMaterial({ map: texture }); // greenish blue
-
-  const cube = new THREE.Mesh(geometry, material);
-  return cube;
 }
 
 
-requestAnimationFrame(render);
+render();

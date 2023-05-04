@@ -1,7 +1,7 @@
 import { TextGeometry } from "three/addons/geometries/TextGeometry.js";
 import * as THREE from "three";
 
-export function createText(textGeo, textMesh, group, font, text) {
+export function createText(font, text) {
   const materials = [
     new THREE.MeshPhongMaterial({ color: 0xffffff, flatShading: true }), // front
     new THREE.MeshPhongMaterial({ color: 0xffffff }), // side
@@ -10,9 +10,8 @@ export function createText(textGeo, textMesh, group, font, text) {
     size = 70,
     hover = 30;
 
-  textGeo = new TextGeometry(text, {
+  let textGeo = new TextGeometry(text, {
     font: font,
-
     size: size,
     height: height,
   });
@@ -22,7 +21,7 @@ export function createText(textGeo, textMesh, group, font, text) {
   const centerOffset =
     -0.5 * (textGeo.boundingBox.max.x - textGeo.boundingBox.min.x);
 
-  textMesh = new THREE.Mesh(textGeo, materials);
+  let textMesh = new THREE.Mesh(textGeo, materials);
 
   textMesh.position.x = centerOffset;
   textMesh.position.y = hover;
@@ -30,6 +29,5 @@ export function createText(textGeo, textMesh, group, font, text) {
 
   textMesh.rotation.x = 0;
   textMesh.rotation.y = Math.PI * 2;
-
-  group.add(textMesh);
+  return textMesh
 }
