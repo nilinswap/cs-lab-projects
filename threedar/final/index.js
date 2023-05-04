@@ -43,6 +43,17 @@ function addLight(scene) {
   scene.add(light);
 }
 
+
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  render();
+}
+  window.addEventListener("resize", onWindowResize);
+
+
+
 function loadFont(group) {
     let fontName = "optimer", // helvetiker, optimer, gentilis, droid sans, droid serif
   fontWeight = "bold";
