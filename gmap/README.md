@@ -1,4 +1,4 @@
-# Class 9
+# Gmap
 
 Students will learn to create their own Maps
 
@@ -16,6 +16,33 @@ part 2
 - make a itenary assitant
 
 
+## Lessons Required
+- intro
+- setup
+- basic html - hello world
+- Think of html in blocks
+- text-rich html, content rich html - add more text, images
+- break in layout
+
+- import js
+    - print console.log
+    - learn to use select tag
+    - import other js files and libraries
+    - Do an if/else example.
+
+- function calls
+
+- ask them to write google api code. 
+
+
+- import css file, add colors - more css
+    - margin
+    - padding
+    - background-color
+    - text-align
+    - color
+
+- teach auto-complete. 
 
 
 

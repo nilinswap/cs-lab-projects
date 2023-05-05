@@ -1,11 +1,10 @@
 # ReadMe
 
-## TODO 
+## Way to Go
 
-- improve the css for city report - 30 min
-    - big city name and other names smaller
-    - remove the labels
+- use commits to keep checkpoints
+- Make them write comments after every 1-4 lines
+- Each html should have a link to the code, kids should be able to explain the code. 
+- we should try to make it mobile-responsive. 
 
-- Do the same for weather - 5 min
 
-- Break it down in 10 classes. 
